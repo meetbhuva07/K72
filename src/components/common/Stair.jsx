@@ -41,9 +41,6 @@ const stair = (props) => {
         scale:1.2
       });
 
-
-
-
     },[currentPath]);
 
   console.log(props.children);
