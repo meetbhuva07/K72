@@ -27,19 +27,40 @@ const FullScreenNav = () => {
         stagger: {
           amount: 0.2,
         }
-      })  
+      }) 
+      tl.from('.navlink',{
+        opacity:1
+      }) 
+  }
+
+  function closeAnimation() {
+    const tl = gsap.timeline();
+    tl.to('.link', {
+      opacity: 0,
+      rotateX: -90,
+      stagger: {
+        amount: 0.2,
+      }
+    });
+    tl.to('.stairing', {
+      height: 0,
+      stagger: {
+        amount: 0.2,
+      }
+    }, "<");
+    tl.to('#fullScreenNav', {
+      display: 'none'
+    });
   }
 
   useGSAP(function(){
     if(navOpen){
-      gsap.to('fullscreennav',{
+      gsap.to('#fullScreenNav',{
         display:'block'
       })
       gsapAnimation()
     }else{
-      gsap.to('.fullscreennav',{
-        display:'none'
-      })
+      closeAnimation()
     }
   },[navOpen])
   
@@ -48,15 +69,15 @@ const FullScreenNav = () => {
     <div ref={fullScreenRef} id="fullScreenNav" className=" text-white h-screen overflow-hidden z-50  w-full absolute ">
       <div className="h-screen w-full fixed">
         <div  className="h-full w-full flex">
-          <div className="stairing h-full w-1/5 bg-red-800"></div>
-          <div className="stairing h-full w-1/5 bg-red-800"></div>
-          <div className="stairing h-full w-1/5 bg-red-800"></div>
-          <div className="stairing h-full w-1/5 bg-red-800"></div>
-          <div className="stairing h-full w-1/5 bg-red-800"></div>
+          <div className="stairing h-full w-1/5 bg-red-800" style={{ height: '0' }}></div>
+          <div className="stairing h-full w-1/5 bg-red-800" style={{ height: '0' }}></div>
+          <div className="stairing h-full w-1/5 bg-red-800" style={{ height: '0' }}></div>
+          <div className="stairing h-full w-1/5 bg-red-800" style={{ height: '0' }}></div>
+          <div className="stairing h-full w-1/5 bg-red-800" style={{ height: '0' }}></div>
         </div>
       </div>
       <div ref={fullNavLinkRef} className="relative">
-        <div className="flex w-full justify-between p-4 items-start">
+        <div className="navlink flex w-full justify-between p-4 items-start">
         <div className="">
             <div className=" w-36">
             <svg className='w-full' xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 103 44">
@@ -74,7 +95,7 @@ const FullScreenNav = () => {
 
       </div>
       <div className="">
-        <div className="link origin-top relative  border-t border-white">
+        <div className="link origin-top relative  border-t border-white" style={{ opacity: 0, transform: 'rotateX(90deg)' }}>
           <h1 className="font-[font2] text-[8vw] text-center leading-[0.8] pt-5 uppercase">Project</h1>
           <div className="moveLink absolute flex top-0 text-black bg-[#d3fd50]">
             <div className="moveX flex  items-center">
@@ -101,7 +122,7 @@ const FullScreenNav = () => {
 
         </div>
 
-        <div className="link origin-top relative  border-t border-white">
+        <div className="link origin-top relative  border-t border-white" style={{ opacity: 0, transform: 'rotateX(90deg)' }}>
           <h1 className="font-[font2] text-[8vw] text-center leading-[0.8] pt-5 uppercase">agence</h1>
           <div className="moveLink absolute flex top-0 text-black bg-[#d3fd50]">
             <div className="moveX flex  items-center">
@@ -128,7 +149,7 @@ const FullScreenNav = () => {
 
         </div>
 
-        <div className="link origin-top relative  border-t border-white">
+        <div className="link origin-top relative  border-t border-white" style={{ opacity: 0, transform: 'rotateX(90deg)' }}>
           <h1 className="font-[font2] text-[8vw] text-center leading-[0.8] pt-5 uppercase">Project</h1>
           <div className="moveLink absolute flex top-0 text-black bg-[#d3fd50]">
             <div className="moveX flex  items-center">
@@ -155,7 +176,7 @@ const FullScreenNav = () => {
 
         </div>
 
-        <div className="link origin-top relative  border-y border-white">
+        <div className="link origin-top relative  border-y border-white" style={{ opacity: 0, transform: 'rotateX(90deg)' }}>
           <h1 className="font-[font2] text-[8vw] text-center leading-[0.8] pt-5 uppercase">Project</h1>
           <div className="moveLink absolute flex top-0 text-black bg-[#d3fd50]">
             <div className="moveX flex  items-center">

@@ -5,12 +5,13 @@ import Agence from './pages/Agence'
 import Project from './pages/Project'
 import Navbar from './components/navigation/Navbar'
 import FullScreenNav from './components/navigation/FullScreenNav'
+import NavContext from './context/NavContext'
 
 
 const App = () => {
 
   return (
-    <div >
+    <NavContext>
       <Navbar />
       <FullScreenNav />
       <Routes>
@@ -18,7 +19,7 @@ const App = () => {
         <Route path='/agence' element={<Agence />} />
         <Route path='/project' element={<Project />} />
       </Routes>
-    </div>
+    </NavContext>
   )
 }
 
