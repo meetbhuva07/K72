@@ -14,66 +14,71 @@ const FullScreenNav = () => {
 
   function gsapAnimation() {
     const tl = gsap.timeline();
-      tl.from(".stairing", {
-        delay:0.5,
-        height: 0,
+    tl.to('.fullScreennav',{
+        display:'block'
+      })
+      tl.to('.stairing', {
+        delay:0.2,
+        height: '100%',
         stagger: {
-          amount: -0.2,
+          amount: -0.3,
         }
-      });
-      tl.from('.link',{
-        opacity:0,
-        rotateX:90,
+      })
+      tl.to('.link',{
+        opacity:1,
+        rotateX:0,
         stagger: {
-          amount: 0.2,
+          amount: 0.3,
         }
       }) 
-      tl.from('.navlink',{
+      tl.to('.navlink',{
         opacity:1
       }) 
   }
 
-  function closeAnimation() {
+function gsapAnimationReverse() {
     const tl = gsap.timeline();
-    tl.to('.link', {
-      opacity: 0,
-      rotateX: -90,
-      stagger: {
-        amount: 0.2,
-      }
-    });
-    tl.to('.stairing', {
-      height: 0,
-      stagger: {
-        amount: 0.2,
-      }
-    }, "<");
-    tl.to('#fullScreenNav', {
-      display: 'none'
-    });
+    tl.to('.link',{
+        opacity:0,
+        rotateX:90,
+        stagger: {
+          amount: 0.1,
+        }
+      }) 
+      tl.to('.stairing', {
+        height: 0,
+        stagger: {
+          amount: 0.1
+        }
+      })
+      tl.to('.navlink',{
+        opacity:0
+      }) 
+      tl.to('.fullScreennav',{
+        display:'none'
+      })
   }
 
   useGSAP(function(){
     if(navOpen){
-      gsap.to('#fullScreenNav',{
-        display:'block'
-      })
+      
       gsapAnimation()
     }else{
-      closeAnimation()
+      
+      gsapAnimationReverse()
     }
   },[navOpen])
   
 
   return (
-    <div ref={fullScreenRef} id="fullScreenNav" className=" text-white h-screen overflow-hidden z-50  w-full absolute ">
+    <div ref={fullScreenRef} id="fullScreennav" className="fullScreennav hidden text-white h-screen overflow-hidden z-50  w-full absolute ">
       <div className="h-screen w-full fixed">
         <div  className="h-full w-full flex">
-          <div className="stairing h-full w-1/5 bg-red-800" style={{ height: '0' }}></div>
-          <div className="stairing h-full w-1/5 bg-red-800" style={{ height: '0' }}></div>
-          <div className="stairing h-full w-1/5 bg-red-800" style={{ height: '0' }}></div>
-          <div className="stairing h-full w-1/5 bg-red-800" style={{ height: '0' }}></div>
-          <div className="stairing h-full w-1/5 bg-red-800" style={{ height: '0' }}></div>
+          <div className="stairing h-full w-1/5 bg-black"></div>
+          <div className="stairing h-full w-1/5 bg-black"></div>
+          <div className="stairing h-full w-1/5 bg-black"></div>
+          <div className="stairing h-full w-1/5 bg-black"></div>
+          <div className="stairing h-full w-1/5 bg-black"></div>
         </div>
       </div>
       <div ref={fullNavLinkRef} className="relative">
@@ -95,7 +100,7 @@ const FullScreenNav = () => {
 
       </div>
       <div className="">
-        <div className="link origin-top relative  border-t border-white" style={{ opacity: 0, transform: 'rotateX(90deg)' }}>
+        <div className="link origin-top relative  border-t border-white">
           <h1 className="font-[font2] text-[8vw] text-center leading-[0.8] pt-5 uppercase">Project</h1>
           <div className="moveLink absolute flex top-0 text-black bg-[#d3fd50]">
             <div className="moveX flex  items-center">
@@ -122,7 +127,7 @@ const FullScreenNav = () => {
 
         </div>
 
-        <div className="link origin-top relative  border-t border-white" style={{ opacity: 0, transform: 'rotateX(90deg)' }}>
+        <div className="link origin-top relative  border-t border-white">
           <h1 className="font-[font2] text-[8vw] text-center leading-[0.8] pt-5 uppercase">agence</h1>
           <div className="moveLink absolute flex top-0 text-black bg-[#d3fd50]">
             <div className="moveX flex  items-center">
@@ -149,7 +154,7 @@ const FullScreenNav = () => {
 
         </div>
 
-        <div className="link origin-top relative  border-t border-white" style={{ opacity: 0, transform: 'rotateX(90deg)' }}>
+        <div className="link origin-top relative  border-t border-white">
           <h1 className="font-[font2] text-[8vw] text-center leading-[0.8] pt-5 uppercase">Project</h1>
           <div className="moveLink absolute flex top-0 text-black bg-[#d3fd50]">
             <div className="moveX flex  items-center">
@@ -176,7 +181,7 @@ const FullScreenNav = () => {
 
         </div>
 
-        <div className="link origin-top relative  border-y border-white" style={{ opacity: 0, transform: 'rotateX(90deg)' }}>
+        <div className="link origin-top relative  border-y border-white">
           <h1 className="font-[font2] text-[8vw] text-center leading-[0.8] pt-5 uppercase">Project</h1>
           <div className="moveLink absolute flex top-0 text-black bg-[#d3fd50]">
             <div className="moveX flex  items-center">
