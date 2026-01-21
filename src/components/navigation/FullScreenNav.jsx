@@ -68,6 +68,7 @@ function gsapAnimationReverse() {
       gsapAnimationReverse()
     }
   },[navOpen])
+       
   
 
   return (
