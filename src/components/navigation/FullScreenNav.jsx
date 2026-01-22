@@ -69,8 +69,6 @@ function gsapAnimationReverse() {
     }
   },[navOpen])
        
-  
-
   return (
     <div ref={fullScreenRef} id="fullScreennav" className="fullScreennav hidden text-white h-screen overflow-hidden z-50  w-full absolute ">
       <div className="h-screen w-full fixed">
