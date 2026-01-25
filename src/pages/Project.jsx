@@ -20,7 +20,6 @@ const project = [{
 ]
 
 gsap.registerPlugin(ScrollTrigger)
-
 useGSAP(function(){
   gsap.from('.hero',{
     height:'100px',
